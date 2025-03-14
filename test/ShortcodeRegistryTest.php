@@ -83,6 +83,7 @@ class ShortcodeRegistryTest extends TestCase
         $addShortcodeMock = $this->getFunctionMock(__NAMESPACE__, 'add_shortcode');
         $shortcodeAttsMock = $this->getFunctionMock(__NAMESPACE__, 'shortcode_atts');
         $shortcodeMock = $this->getMockBuilder(Shortcode::class)->getMock();
+        $tag = 'tag';
         $defaultAttributes = ['key' => 'default'];
         $attributes = ['key' => 'value'];
         $shortcodeAttsResult = ['key' => 'result'];
@@ -93,10 +94,10 @@ class ShortcodeRegistryTest extends TestCase
             ->with($this->anything(), $this->capture($renderCallback));
         $shortcodeAttsMock
             ->expects($this->once())
-            ->with($defaultAttributes, $attributes)
+            ->with($defaultAttributes, $attributes, $tag)
             ->willReturn($shortcodeAttsResult);
 
-        $shortcodeMock->method('tag')->willReturn('');
+        $shortcodeMock->method('tag')->willReturn($tag);
         $shortcodeMock->method('defaultAttributes')->willReturn($defaultAttributes);
         $shortcodeMock->method('render')->with($shortcodeAttsResult, null)->willReturn($renderResult);
 

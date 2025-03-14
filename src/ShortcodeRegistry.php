@@ -40,7 +40,11 @@ class ShortcodeRegistry
     private function render(Shortcode $shortcode, array|string $attributes, string $content): string
     {
         return $shortcode->render(
-            shortcode_atts($shortcode->defaultAttributes(), is_string($attributes) ? [] : $attributes),
+            shortcode_atts(
+                $shortcode->defaultAttributes(),
+                is_string($attributes) ? [] : $attributes,
+                $shortcode->tag()
+            ),
             strlen($content) > 0 ? $content : null
         );
     }
