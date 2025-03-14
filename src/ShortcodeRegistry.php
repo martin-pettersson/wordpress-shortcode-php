@@ -12,9 +12,9 @@ declare(strict_types=1);
 namespace N7e\WordPress;
 
 /**
- * Represents a WordPress shortcode.
+ * Represents a WordPress shortcode registry.
  */
-class ShortcodeRegistry
+final class ShortcodeRegistry
 {
     /**
      * Register given shortcode.

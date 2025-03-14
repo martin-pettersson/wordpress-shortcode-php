@@ -19,7 +19,7 @@ use PHPUnit\Framework\Constraint\Callback;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(ShortcodeRegistry::class)]
-class ShortcodeRegistryTest extends TestCase
+final class ShortcodeRegistryTest extends TestCase
 {
     use PHPMock;
 

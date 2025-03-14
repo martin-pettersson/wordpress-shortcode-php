@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(Shortcode::class)]
-class ShortcodeTest extends TestCase
+final class ShortcodeTest extends TestCase
 {
     use PHPMock;
 
