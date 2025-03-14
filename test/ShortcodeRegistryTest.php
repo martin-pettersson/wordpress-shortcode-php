@@ -33,7 +33,7 @@ final class ShortcodeRegistryTest extends TestCase
 
     private function capture(&$destination): Callback
     {
-        return $this->callback(function ($source) use (&$destination) {
+        return $this->callback(static function ($source) use (&$destination) {
             $destination = $source;
 
             return true;
